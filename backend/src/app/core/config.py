@@ -47,12 +47,20 @@ class Settings(BaseSettings):
     ]  # TODO: Restrict this in production
 
     # LLM CONFIG
-    dimensions: int = 1536
+    llm_provider: str = "azureopenai"
     embedding_provider: str = "openai"
+
+    # OPENAI CONFIG
+    dimensions: int = 1536
     embedding_model: str = "text-embedding-3-small"
-    llm_provider: str = "openai"
     llm_model: str = "gpt-4o"
     openai_api_key: Optional[str] = None
+
+    # Azure OpenAI CONFIG
+    azure_llm_model: str = "gpt-4o"
+    azure_openai_api_key: Optional[str] = None
+    azure_openai_api_base: Optional[str] = None
+    azure_openai_api_version: Optional[str] = None
 
     # VECTOR DATABASE CONFIG
     vector_db_provider: str = "milvus"

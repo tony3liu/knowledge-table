@@ -15,10 +15,15 @@ try:
 
     UNSTRUCTURED_AVAILABLE = True
 except ImportError:
+    UnstructuredLoader = None
     UNSTRUCTURED_AVAILABLE = False
     logger.warning(
         "UnstructuredLoader is not available. Install the 'unstructured' extra to use it."
     )
+if UnstructuredLoader is not None:
+    pass
+else:
+    pass
 
 
 class LoaderFactory:

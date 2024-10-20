@@ -7,6 +7,8 @@ from app.core.config import Settings
 from app.services.llm.base import LLMService
 from app.services.llm.openai_service import OpenAIService
 
+from app.services.llm.openai_service import AzureOpenAIService
+
 logger = logging.getLogger(__name__)
 
 
@@ -21,5 +23,7 @@ class LLMFactory:
         )
         if settings.llm_provider == "openai":
             return OpenAIService(settings)
+        if settings.llm_provider == "azureopenai":
+            return AzureOpenAIService(settings)
         # Add more providers here when needed
         return None
